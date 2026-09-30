@@ -1,0 +1,124 @@
+#include <stdio.h>
+
+int main()
+{
+    int a, i, x;
+    int count = 0;
+    int isPrime;
+
+    // Part 1: Check whether a number is prime
+
+    printf("Enter a number: ");
+    scanf("%d", &a);
+
+    isPrime = 1;
+
+    if (a <= 1)
+    {
+        isPrime = 0;
+    }
+    else
+    {
+        for (x = 2; x < a; x++)
+        {
+            if (a % x == 0)
+            {
+                isPrime = 0;
+                break;
+            }
+        }
+    }
+
+    if (isPrime == 1)
+    {
+        printf("%d is a Prime Number\n", a);
+    }
+    else
+    {
+        printf("%d is Not a Prime Number\n", a);
+    }
+
+
+    // Part 2: Find primes in a range
+
+    int start, end;
+    int prime[100];
+
+    printf("\nEnter starting number: ");
+    scanf("%d", &start);
+
+    printf("Enter ending number: ");
+    scanf("%d", &end);
+
+    count = 0;
+
+    for (a = start; a <= end; a++)
+    {
+        isPrime = 1;
+
+        if (a <= 1)
+        {
+            isPrime = 0;
+        }
+        else
+        {
+            for (x = 2; x < a; x++)
+            {
+                if (a % x == 0)
+                {
+                    isPrime = 0;
+                    break;
+                }
+            }
+        }
+
+        if (isPrime == 1)
+        {
+            prime[count] = a;
+            count++;
+        }
+    }
+
+    printf("\nPrime numbers in the range:\n");
+
+    for (i = 0; i < count; i++)
+    {
+        printf("%d ", prime[i]);
+    }
+
+    printf("\nTotal prime numbers = %d\n", count);
+
+
+    // Part 3: Twin primes
+
+    printf("\nTwin prime pairs:\n");
+
+    for (i = 0; i < count - 1; i++)
+    {
+        if (prime[i + 1] - prime[i] == 2)
+        {
+            printf("(%d, %d)\n", prime[i], prime[i + 1]);
+        }
+    }
+
+
+    // Part 4: Prime factorization
+
+    printf("\nEnter a number for prime factorization: ");
+    scanf("%d", &a);
+
+    printf("Prime factors: ");
+
+    for (x = 2; x <= a; x++)
+    {
+        while (a % x == 0)
+        {
+            printf("%d ", x);
+            a = a / x;
+        }
+    }
+
+    printf("\n");
+
+    return 0;
+}
