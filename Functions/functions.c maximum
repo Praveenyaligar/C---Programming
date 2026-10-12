@@ -1,0 +1,38 @@
+
+#include <stdio.h>
+
+int maximum(int a, int b, int c);
+
+int main()
+{
+    int a, b, c, ans;
+
+    printf("Enter any three numbers: ");
+    scanf("%d %d %d", &a, &b, &c);
+
+    ans = maximum(a, b, c);
+
+    printf("Maximum among three numbers is %d\n", ans);
+
+    return 0;
+}
+
+int maximum(int a, int b, int c)
+{
+    int result;
+
+    if (a > b && a > c)
+    {
+        result = a;
+    }
+    else if (b > a && b > c)
+    {
+        result = b;
+    }
+    else
+    {
+        result = c;
+    }
+
+    return result;
+}
